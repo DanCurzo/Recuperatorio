@@ -1,1 +1,55 @@
-<h1>registro</h1>
+<DOCTYPE html>
+    <html lang="en">
+
+    <head>
+
+        <title>Register</title>
+    </head>
+
+    <body>
+        <form action="register.html" method="POST">
+            <p>
+                <label>Nombre y apellido </label>
+                <input type="text" name="nombre y apellido" required>
+            </p>
+
+            <p>
+                <label>Nombre de usuario</label>
+                <input type="text" name="nombre de usuario" required>
+            </p>
+
+            <p>
+                <label>Fecha de nacimiento</label>
+                <input type="text" name="fecha de nacimiento" required>
+            </p>
+
+            <p>
+                <label for="interés">Categorias de interes:</label>
+            <ul>
+                <li><input type="checkbox" name="interes" value="Accion">Accion</li>
+                <li><input type="checkbox" name="interés" value="Comedia">Comedia</li>
+                <li><input type="checkbox" name="interés" value="Terror">Terror</li>
+                <li><input type="checkbox" name="interés" value="Ciencia ficcion">Ciencia ficcion</li>
+                <li><input type="checkbox" name="interés" value="Suspenso">Suspenso</li>
+            </ul>
+            </p>
+
+            <p>
+                <label>Foto de perfil</label>
+                <input type="text" name="Foto de perfil" required>
+            </p>
+
+            <p>
+                <label>Contraseña</label>
+                <input type="text" name="Contraseña" required>
+            </p>
+
+            <p>
+                <label>Confirmar Contraseña</label>
+                <input type="text" name="Confirmar Contraseña" required>
+            </p>
+
+                <input type="submit" name="button" required value="Enviar" href="/home.ejs">
+                <button type="reset">Borrar</button>
+        </form>
+    </body>
