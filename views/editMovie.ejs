@@ -12,36 +12,36 @@
 
 <body>
     <div class="m-2">
-        <h1>Nueva película</h1>
+        <h1>Modificar película</h1>
         <hr>
         <main>
             <section>
-                <form action="/createNewMovie" method="POST">
+                <form action="/movies/<%= movie.id %>/edit?_method=PUT" method="POST">
                     <h2>Ingresar datos:</h2>
 
-                    <label for="title" class="form-label mt-2">Título:</label>
-                    <input type="text" name="title" id="title" class="form-control" autocomplete="off" required>
+                    <label for="title" class="form-label">Título:</label>
+                    <input type="text" name="title" id="title" class="form-control" autocomplete="off" required value="<%= movie.title %>">
 
                     <label for="rating" class="form-label mt-2">Rating:</label>
-                    <input type="text" name="rating" id="rating" class="form-control" autocomplete="off" required>
+                    <input type="text" name="rating" id="rating" class="form-control mt-2" autocomplete="off" required value="<%= movie.rating %>">
 
                     <label for="awards" class="form-label mt-2">Premios:</label>
-                    <input type="text" name="awards" id="awards" class="form-control" autocomplete="off" required>
+                    <input type="text" name="awards" id="awards" class="form-control" autocomplete="off" required value="<%= movie.awards %>">
 
                     <label for="length" class="form-label mt-2">Duración:</label>
-                    <input type="text" name="length" id="length" class="form-control" autocomplete="off" required>
+                    <input type="text" name="length" id="length" class="form-control" autocomplete="off" required value="<%= movie.length %>">
 
                     <label for="genre" class="form-label mt-2">Género:</label>
                     <select name="genre" id="genre" class="form-select">
                         <% genres.forEach(g => { %>
-                             <option value="<%= g.id %>"><%= g.name %></option>
+                             <option value="<%= g.id %>" <%= g.id == movie.genre_id ? 'selected' : '' %>><%= g.name %></option>
                         <% }) %>
                     </select>
 
                     <label for="release_date" class="form-label mt-2">Lanzamiento:</label>
-                    <input type="date" name="release_date" id="release_date" class="form-control" autocomplete="off" required>
+                    <input type="date" name="release_date" id="release_date" class="form-control" autocomplete="off" required value="<%= moment(movie.release_date).format('YYYY-MM-DD') %>">
 
-                    <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+                    <button type="submit" class="btn btn-primary mt-2">Modificar</button>
                 </form>
             </section>
         </main>

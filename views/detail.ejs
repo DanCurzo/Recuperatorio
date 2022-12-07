@@ -17,17 +17,34 @@
                 Detalles de la película: <%= movie.title %>
             </h1>
             <hr>
+            <% if(movie.rating) { %>
+                <p>Rating:: <%= movie.rating %></p>
+            <% } else { %>
+                <p>Rating: Sin especificar.</p>
+            <% } %>
 
-            <p>Rating: <%= movie.rating %></p>
+            <% if(movie.awards) { %>
+                <p>Premios: <%= movie.awards %></p>
+            <% } else { %>
+                <p>Premios: Sin especificar.</p>
+            <% } %>
 
-            <p>Premios: <%= movie.awards %></p>
-
-            <p>Duración: <%= movie.length %></p>
+            <% if(movie.length) { %>
+                <p>Duraación: <%= movie.length %></p>
+            <% } else { %>
+                <p>Duración: Sin especificar.</p>
+            <% } %>
 
             <% if(movie.genre) { %>
                 <p>Género: <%= movie.genre.name %></p>
             <% } else { %>
                 <p>Género: Sin especificar.</p>
+            <% } %>
+
+            <% if(movie.release_date) { %>
+                <p>Lanzamiento: <%= movie.release_date %></p>
+            <% } else { %>
+                <p>Lanzamiento: Sin especificar.</p>
             <% } %>
 
             <h3>Actores:</h3>
