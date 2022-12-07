@@ -1,20 +1,20 @@
-module.exports = function(sequelize, DataTypes){
+module.exports = function (sequelize, DataTypes) {
     let alias = "Genre";
     let cols = {
-        id:{
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoincrement: true
         },
-        name:{
+        name: {
             type: DataTypes.STRING(5000),
             allowNull: false,
         },
-        ranking:{
+        ranking: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        active:{
+        active: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -26,12 +26,12 @@ module.exports = function(sequelize, DataTypes){
     const genre = sequelize.define(alias, cols, config);
 
     // Un genero tiene muchas peliculas
-    genre.associate = function(models){
+    genre.associate = function (models) {
         genre.hasMany(models.Movie, {
             as: "movies",
             foreignKey: 'genre_id'
         });
     }
-    
+
     return genre;
 }

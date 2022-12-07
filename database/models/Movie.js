@@ -1,44 +1,44 @@
-module.exports = function(sequelize, DataTypes){
+module.exports = function (sequelize, DataTypes) {
     let alias = "Movie";
-    let cols ={
-        id:{
+    let cols = {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoincrement: true
         },
-        title:{
+        title: {
             type: DataTypes.STRING(255),
             allowNull: false
         },
-        rating:{
+        rating: {
             type: DataTypes.DECIMAL,
             allowNull: false,
         },
-        awards:{
+        awards: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        release_date:{
+        release_date: {
             type: DataTypes.STRING(255),
             allowNull: false
         },
-        length:{
+        length: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        genre_id:{
+        genre_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        }, 
+        },
     };
-    let config ={
+    let config = {
         timestamps: false,
         tableName: 'movies'
     }
     const Movie = sequelize.define(alias, cols, config);
 
     // Una pelicula tiene un solo genero
-    Movie.associate = function(models){
+    Movie.associate = function (models) {
         Movie.belongsTo(models.Genre, {
             as: "genre",
             foreignKey: 'genre_id'

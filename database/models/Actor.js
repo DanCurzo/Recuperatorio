@@ -1,32 +1,32 @@
-module.exports = function(sequelize, DataTypes){
+module.exports = function (sequelize, DataTypes) {
     let alias = "Actor";
-    let cols ={
-        id:{
+    let cols = {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoincrement: true
         },
-        first_name:{
+        first_name: {
             type: DataTypes.STRING(100),
             allowNull: false
         },
-        last_name:{
+        last_name: {
             type: DataTypes.STRING(100),
             allowNull: false
         },
-        rating:{
+        rating: {
             type: DataTypes.DECIMAL,
             allowNull: false,
         },
     };
 
-    let config ={
+    let config = {
         timestamps: false,
         tableName: 'actors'
     }
     const Actor = sequelize.define(alias, cols, config);
 
-    Actor.associate = function(models){
+    Actor.associate = function (models) {
         Actor.belongsToMany(models.Movie, {
             through: "actor_movie",
             foreignKey: "movie_id",
@@ -34,6 +34,6 @@ module.exports = function(sequelize, DataTypes){
             timestamps: false,
         });
     }
-    
+
     return Actor;
 }
