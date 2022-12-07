@@ -56,7 +56,6 @@ module.exports = {
 
     // Cerrar sesión
     logout: (req, res) => {
-        res.clearCookie('userEmail');
         req.session.destroy();
         return res.redirect('/')
     }
