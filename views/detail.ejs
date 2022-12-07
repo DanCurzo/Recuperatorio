@@ -13,9 +13,14 @@
 <body>
     <div class="m-2">
         <% if(movie) { %>
-            <h1>
-                Detalles de la película: <%= movie.title %>
-            </h1>
+            <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+                <h1>
+                    Detalles de la película: <%= movie.title %>
+                </h1>
+                <button class="btn btn-outline-primary">
+                    <a href="/">🏠</a>
+                </button>
+            </div>
             <hr>
             <% if(movie.rating) { %>
                 <p>Rating:: <%= movie.rating %></p>

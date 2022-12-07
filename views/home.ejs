@@ -12,7 +12,24 @@
 
 <body>
     <div class="m-2">
-        <h1>Listado de peliculas</h1>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <h1>Listado de peliculas</h1>
+            <div>
+                <button class="btn btn-outline-info">
+                    <a href="/newMovie" style="text-decoration: none;">Nueva película ➕</a>
+                </button>
+                -
+                <button class="btn btn-outline-info">
+                    <a href="#" style="text-decoration: none;">Registrarse</a>
+                </button>
+                <button class="btn btn-outline-info">
+                    <a href="#" style="text-decoration: none;">Iniciar sesión</a>
+                </button>
+                <button class="btn btn-outline-info">
+                    <a href="" style="text-decoration: none;">Cerrar sesión</a>
+                </button>
+            </div>
+        </div>
         <hr>
         <% if (movies.length> 0) { %>
             <% movies.forEach(element=> { %>
