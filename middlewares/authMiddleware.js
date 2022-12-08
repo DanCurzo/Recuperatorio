@@ -1,4 +1,4 @@
-function moviesMiddleware(req, res, next) {
+function authMiddleware(req, res, next) {
     // Si NO hay un usuario logueado
     if (!req.session.userLogged) {
         return res.redirect('/');
@@ -7,4 +7,4 @@ function moviesMiddleware(req, res, next) {
     next();
 }
 
-module.exports = moviesMiddleware;
+module.exports = authMiddleware;

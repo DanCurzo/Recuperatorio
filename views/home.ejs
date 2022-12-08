@@ -15,13 +15,11 @@
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
             <h1>Listado de peliculas</h1>
             <div>
-                
                 <a href="/newMovie" style="text-decoration: none;">
                     <button class="btn btn-outline-info">
                         Nueva película ➕
                     </button>
                 </a>
-                -
                 <a href="/register" style="text-decoration: none;">
                     <button class="btn btn-outline-info">
                         Registrarse
@@ -32,7 +30,7 @@
                         Iniciar sesión
                     </button>
                 </a>
-                <a href="#" style="text-decoration: none;">
+                <a href="/logout" style="text-decoration: none;">
                     <button class="btn btn-outline-info">
                         Cerrar sesión
                     </button>
@@ -43,7 +41,9 @@
         <% if (movies.length> 0) { %>
             <% movies.forEach(element=> { %>
                 <div style="display: flex; flex-direction: row; align-items: center;" class="mt-4">
-                    <a href="/movies/<%= element.id %>"><%= element.title %></a> 
+                    <a href="/movies/<%= element.id %>">
+                        <%= element.title %>
+                    </a>
                     <form action="/movies/<%= element.id %>/edit" method="GET">
                         <button class="btn btn-outline-success mx-2" type="submit">✏️</button>
                     </form>
@@ -51,7 +51,7 @@
                         <button class="btn btn-outline-danger" type="submit">🗑️</button>
                     </form>
                 </div>
-            <% }) %>
+                <% }) %>
         <% } else { %>
             <h2>
                 No hay películas.

@@ -42,15 +42,15 @@ module.exports = {
                     // Si el usuario se loguea, guardo su sesión y borro su pass
                     delete user.password;
                     req.session.userLogged = user;
-                    return res.redirect('/');
+                    return res.redirect('/')
                 }
             } else {
                 console.log("Datos incorrectos.");
-                return res.redirect('/login');
+                return res.render('login');
             }
         }).catch((err) => {
             console.log("Ocurrió un error");
-            return res.redirect('/login');
+            return res.render('login');
         });
     },
 

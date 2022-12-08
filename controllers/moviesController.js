@@ -1,5 +1,5 @@
 const db = require('../database/models/index');
-const moment = require('moment')
+const moment = require('moment');
 
 module.exports = {
     // Listado de peliculas
@@ -77,7 +77,7 @@ module.exports = {
             });
         res.redirect('/');
     },
-    
+
     // Eliminar película
     delete: (req, res) => {
         db.Movie.destroy({
